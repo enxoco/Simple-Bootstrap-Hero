@@ -528,6 +528,25 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 	
 	endif;
+
+	/**
+	 * 
+	 * Load our plugin update checker dependency
+	 * 
+	 */
+
+	require 'plugin-update-checker/plugin-update-checker.php';
+	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+		'https://github.com/enxoco/Simple-Bootstrap-Hero',
+		__FILE__,
+		'simple-bootstrap-hero'
+	);
+	
+	//Optional: If you're using a private repository, specify the access token like this:
+	$myUpdateChecker->setAuthentication('your-token-here');
+	
+	//Optional: Set the branch that contains the stable release.
+	$myUpdateChecker->setBranch('master');
 /**
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
