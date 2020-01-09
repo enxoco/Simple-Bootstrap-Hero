@@ -1,0 +1,86 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<main role="main">
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="{{ Image(post.hero_image).src }}" width="100%" alt="First slide">
+            <div class="container">
+              <div class="carousel-caption text-center">
+				<p>{{ post.hero_pretext }}</p>
+                <h1>{{ post.hero_heading }}</h1>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+      <div class="container marketing mt-5">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+		  <div class="card bg-blue">
+		  <div class="card-body text-white text-center">
+            <h2>{{ post.box_1_heading}}</h2>
+            <p>{{ post.box_1_description }}</p>
+            <p><a class="btn btn-secondary bg-light-blue" href="/{{ Post(post.box_1_cta).slug }}" role="button">Learn More</a></p>
+			</div>
+			</div>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+		  <div class="card bg-blue">
+		  <div class="card-body text-white text-center">
+            <h2>{{ post.box_2_heading|upper }}</h2>
+            <p>{{ post.box_2_description }}</p>
+            <p><a class="btn btn-secondary bg-light-blue" href="/{{ Post(post.box_2_cta).slug }}" role="button">Learn More</a></p>
+			</div>
+			</div>
+          </div><!-- /.col-lg-4 -->
+		            <div class="col-lg-4">
+		  <div class="card bg-blue">
+		  <div class="card-body text-white text-center">
+            <h2>{{ post.box_3_heading|upper }}</h2>
+            <p>{{ post.box_3_description }}</p>
+            <p><a class="btn btn-secondary bg-light-blue" href="/{{ Post(post.box_3_cta).slug }}" role="button">Learn More</a></p>
+			</div>
+			</div>
+          </div><!-- /.col-lg-4 -->
+		  
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+		<div class="row bg-light">
+     <div class="col-lg-6 mx-auto my-5">
+                      <h1 class="text-center text-light-blue heading-text">About Us</h1>
+                      </div>
+					  </div>	
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2017-2018 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+    </main>
+<div class="container">
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<h1 class="article-h1">{{post.title}}</h1>
+				<div class="article-body">
+					{{post.content}}
+					<img src="{{ post.thumbnail.src }}" class="my-thumb-class" alt="Image for {{ post.title }}" />
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+	</div><!-- /container -->
+{% endblock %}

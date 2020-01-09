@@ -1,0 +1,70 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<main role="main">
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="{{ Image(post.hero_image).src }}" width="100%" alt="First slide">
+            <div class="container">
+              <div class="carousel-caption text-center text-blue">
+				<p>{{ post.hero_pretext }}</p>
+                <h1 class="heading-text my-0 text-blue">{{ post.hero_heading }}</h1>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+      <div class="container marketing my-5">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4 col-12">
+		  <div class="card" style="background-color: {{ post.box_background }};">
+		  <div class="card-body text-white text-center d-flex flex-column justify-content-between">
+            <h2>{{ post.box_one_heading|upper}}</h2>
+            <p>{{ post.box_one_description }}</p>
+            <p><a class="btn btn-secondary bg-light-blue" href="/{{ Post(post.box_one_cta_url).slug }}" role="button">{{ post.box_one_cta_text }}</a></p>
+			</div>
+			</div>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4 col-12">
+		  <div class="card" style="background-color: {{ post.box_background }};">
+		  <div class="card-body text-white text-center d-flex flex-column justify-content-between">
+            <h2>{{ post.box_two_heading|upper }}</h2>
+            <p>{{ post.box_two_description }}</p>
+            <p><a class="btn btn-secondary bg-light-blue" href="/{{ Post(post.box_two_cta).slug }}" role="button">Learn More</a></p>
+			</div>
+			</div>
+          </div><!-- /.col-lg-4 -->
+		      <div class="col-lg-4 col-12">
+		          <div class="card" style="background-color: {{ post.box_background }};">
+              		  <div class="card-body text-white text-center d-flex flex-column justify-content-between">
+
+                <h2>{{ post.box_three_heading|upper }}</h2>
+                <p>{{ post.box_three_description }}</p>
+                <p><a class="btn btn-secondary bg-light-blue" href="/{{ Post(post.box_three_cta).slug }}" role="button">Learn More</a></p>
+			        </div>
+			      </div>
+          </div><!-- /.col-lg-4 -->
+		  
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+		<div class="row bg-light">
+     <div class="col-lg-6 col-10 mx-auto my-5">
+                      <h1 class="text-center text-light-blue heading-text">About Us</h1>
+                      <div class="my-3">
+                      {{ post.about_text }}
+                      </div>
+      </div>
+					  </div>	
+{% endblock %}
