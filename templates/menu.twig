@@ -1,8 +1,10 @@
 {% if menu %}
 	<header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-blue" style="height:90px">
+      <nav class="navbar navbar-expand-md fixed-top" style="height:90px; background-color: {{ nav_bg_color }};">
       <div class="container">
-        <a class="navbar-brand" href="/"><img src="https://static.wixstatic.com/media/1c1f1e_a65d59163ad747388748ca873ce77cca~mv2_d_6511_1563_s_2.png/v1/fill/w_303,h_71,al_c,q_85,usm_0.66_1.00_0.01/1c1f1e_a65d59163ad747388748ca873ce77cca~mv2_d_6511_1563_s_2.webp" /></a>
+        <a class="navbar-brand" href="/"><img src="{{ logo }}" class="navbar-logo" />
+       
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,12 +12,13 @@
           <ul class="navbar-nav mx-auto">
         {% for item in menu.items %}
             <li class="nav-main-item {{ item.classes|join(' ') }}">
-                <a class="nav-main-link text-white mx-3" href="{{ item.link }}">{{ item.title|capitalize }}</a>
+                <a class="nav-main-link mx-3" style="color: {{ menu_text_color }}" href="{{ item.link }}">{{ item.title|capitalize }}</a>
                 {% if item.children %}
                     <ul class="nav-drop">
                         {% for child in item.children %}
                             <li class="nav-drop-item">
-                                <a href="{{ child.link }}">{{ child.title }}</a>
+                                <a href="{{ child.link }}" style="color: {{ menu_color }}">{{ child.title }} {{ menu_color }} </a>
+
                             </li>
                         {% endfor %}
                     </ul>

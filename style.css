@@ -52,3 +52,7 @@ ul {
     left: 0;
     bottom: 0;
 }
+
+.navbar-logo {
+    max-height: 90px;
+}

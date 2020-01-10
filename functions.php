@@ -19,6 +19,10 @@ if ( file_exists( $composer_autoload ) ) {
 	$timber = new Timber\Timber();
 }
 
+
+
+
+   
 /** Include custom fields
  * 
  */
@@ -528,7 +532,7 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 	
 	endif;
-
+	
 	/**
 	 * 
 	 * Load our plugin update checker dependency
@@ -609,6 +613,7 @@ class StarterSite extends Timber\Site {
 
 	}
 
+
 	/** This is where you add some context
 	 *
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
@@ -619,12 +624,27 @@ class StarterSite extends Timber\Site {
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menu'] = new \Timber\Menu( 'primary' );
 		$context['site']  = $this;
+		if ( function_exists( 'the_custom_logo' ) ) {
+
+			$custom_logo_id = get_theme_mod( 'custom_logo' );
+			$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+			$context['logo'] = $logo[0];
+			// $context['menu_color'] = theme_mod('menu_nav_link_color_picker');
+		   }
+		   $menu_color = get_theme_mod('menu_nav_link_color_picker');
+		   $context['menu_text_color'] = $menu_color;
+		   $context['nav_bg_color'] = get_theme_mod('menu_nav_background_color_picker');
+
 		return $context;
 	}
+
 
 	public function theme_supports() {
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
+
+		// Add colors option
+		add_theme_support( 'colors' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -674,7 +694,77 @@ class StarterSite extends Timber\Site {
 		);
 
 		add_theme_support( 'menus' );
+		add_theme_support( 'custom-logo' );
+
+	   		function bwpy_customizer( $wp_customize ) {
+
+			// add "Content Options" section
+			$wp_customize->add_section( 'bwpy_content_options_section' , array(
+				'title'      => __( 'Content Options', 'bwpy' ),
+				'priority'   => 100,
+			) );
+
+			// add "Content Options" section
+			$wp_customize->add_section( 'bwpy_color_options_section' , array(
+				'title'      => __( 'Color Options', 'bwpy' ),
+				'priority'   => 100,
+			) );
+
+			$wp_customize->add_setting( 'heading_color_picker', array(
+				'default' => '#f5f5f5'
+			) );
+			$wp_customize->add_setting( 'menu_nav_link_color_picker', array(
+				'default' => '#f5f5f5'
+			) );
+			$wp_customize->add_setting( 'menu_nav_background_color_picker', array(
+				'default' => '#f5f5f5'
+			) );
+
+			$wp_customize->add_setting( 'test_setting', array(
+				'default' => '#f5f5f5'
+			) );
+			$wp_customize->add_control( 'test_setting', array(
+				'label'     => __( 'Test Color', 'bwpy' ),
+				'section'   => 'bwpy_color_options_section',
+				'priority'  => 10,
+				'type'      => 'media'
+			) );
+			$wp_customize->add_control( 'heading_color_picker', array(
+				'label'     => __( 'Heading Color', 'bwpy' ),
+				'section'   => 'bwpy_color_options_section',
+				'priority'  => 10,
+				'type'      => 'color'
+			) );
+			$wp_customize->add_control( 'menu_nav_link_color_picker', array(
+				'label'     => __( 'Menu Nav Link Color', 'bwpy' ),
+				'section'   => 'bwpy_color_options_section',
+				'priority'  => 20,
+				'type'      => 'color'
+			) );
+			$wp_customize->add_control( 'menu_nav_background_color_picker', array(
+				'label'     => __( 'Menu Nav Background Color', 'bwpy' ),
+				'section'   => 'bwpy_color_options_section',
+				'priority'  => 30,
+				'type'      => 'color'
+			) );
+		
+			
+			// add setting for page comment toggle checkbox
+			$wp_customize->add_setting( 'bwpy_page_comment_toggle', array( 
+				'default' => 1 
+			) );
+			
+			// add control for page comment toggle checkbox
+			$wp_customize->add_control( 'bwpy_page_comment_toggle', array(
+				'label'     => __( 'Show comments on pages?', 'bwpy' ),
+				'section'   => 'bwpy_content_options_section',
+				'priority'  => 10,
+				'type'      => 'checkbox'
+			) );
+		}
+		add_action( 'customize_register', 'bwpy_customizer' );
 	}
+	
 
 	/** This Would return 'foo bar!'.
 	 *
