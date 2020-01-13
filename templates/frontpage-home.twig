@@ -1,70 +1,77 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
-<main role="main">
-
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="first-slide" src="{{ Image(post.hero_image).src }}" width="100%" alt="First slide">
-            <div class="container">
-              <div class="carousel-caption text-center text-blue">
-				<p>{{ post.hero_pretext }}</p>
-                <h1 class="heading-text my-0 text-blue">{{ post.hero_heading }}</h1>
-              </div>
+    <div data-w-id="975d830f-0b79-6c71-0ebb-45be264ad390" class="hero-overlay-block">
+        <h1 data-ix="fade-in-on-load" class="hero-main-title">{{ post.hero_heading }}</h1><img
+            src="https://uploads-ssl.webflow.com/5e1a4785a7d3a2005330db52/5e1c75d2a7d3a27c283f60aa_Path%20147.png"
+            height="2" alt="" class="image-3" />
+        <h2 data-ix="fade-in-on-load-2" class="hero-main-title subtitle">{{ post.hero_pretext }}</h2>
+    </div>
+    <div class="section-2">
+        <div class="columns-2 w-row">
+            <div class="column-3 w-col w-col-4">
+                <div data-ix="fade-in-zoom" class="home-intro-wrapper"><a href="/homepages/home-business-2"
+                        class="home-intro-link-block w-inline-block"></a>
+                    <div class="intro-block-text-wrapper">
+                        <div class="intro-block-title text-blue">{{ post.box_one_heading }}</div>
+						<p class="paragraph">{{ post.box_one_description }}</p>
+						<a href="#" class="button-blue w-button">{{ post.box_one_cta_text }}</a>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="w-col w-col-4">
+                <div data-ix="fade-in-zoom-3" class="home-intro-wrapper mid"><a href="/homepages/home-business-3"
+                        class="home-intro-link-block _2 w-inline-block">
 
+                    </a>
+                    <div class="intro-block-text-wrapper mid">
+                        <div class="intro-block-title text-red">{{ post.box_two_heading }}</div>
+						<p class="paragraph">{{ post.box_two_description }}</p>
+						<a href="#" class="button-orange w-button">{{ post.box_two_cta_text }}</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="w-col w-col-4">
+                <div data-ix="fade-in-zoom-2" class="home-intro-wrapper right"><a href="/homepages/home-iphone-app"
+                        class="home-intro-link-block _3 w-inline-block">
+
+                    </a>
+                    <div class="intro-block-text-wrapper last">
+                        <div class="intro-block-title">{{ post.box_three_heading }}</div>
+						<p class="paragraph">{{ post.box_three_description }}</p>
+						<a href="#" class="button-3 w-button">{{ post.box_three_cta_text }}</a>
+
+                    </div>
+                </div>
+            </div>
         </div>
-
-      </div>
-
-
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
-      <div class="container marketing my-5">
-
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-          <div class="col-lg-4 col-12">
-		  <div class="card" style="background-color: {{ post.box_background }};">
-		  <div class="card-body text-center d-flex flex-column justify-content-between">
-            <h2>{{ post.box_one_heading|upper}}</h2>
-            <p>{{ post.box_one_description }}</p>
-            <p><a class="btn btn-secondary bg-light-blue" href="/{{ Post(post.box_one_cta_url).slug }}" role="button">{{ post.box_one_cta_text }}</a></p>
-			</div>
-			</div>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4 col-12">
-		  <div class="card" style="background-color: {{ post.box_background }};">
-		  <div class="card-body text-center d-flex flex-column justify-content-between">
-            <h2>{{ post.box_two_heading|upper }}</h2>
-            <p>{{ post.box_two_description }}</p>
-            <p><a class="btn btn-secondary bg-light-blue" href="/{{ Post(post.box_two_cta).slug }}" role="button">Learn More</a></p>
-			</div>
-			</div>
-          </div><!-- /.col-lg-4 -->
-		      <div class="col-lg-4 col-12">
-		          <div class="card" style="background-color: {{ post.box_background }};">
-              		  <div class="card-body text-center d-flex flex-column justify-content-between">
-
-                <h2>{{ post.box_three_heading|upper }}</h2>
-                <p>{{ post.box_three_description }}</p>
-                <p><a class="btn btn-secondary bg-light-blue" href="/{{ Post(post.box_three_cta).slug }}" role="button">Learn More</a></p>
-			        </div>
-			      </div>
-          </div><!-- /.col-lg-4 -->
-		  
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-		<div class="row bg-light">
-     <div class="col-lg-6 col-10 mx-auto my-5">
-                      <h1 class="text-center text-light-blue heading-text">About Us</h1>
-                      <div class="my-3">
-                      {{ post.about_text }}
-                      </div>
-      </div>
-					  </div>	
-{% endblock %}
+    </div>
+    <div class="image-section">
+        <div class="image-section-overlay color">
+            <div class="section-title-wrapper full">
+                <h2 class="section-title">About the Forum</h2><img
+                    src="https://uploads-ssl.webflow.com/5e1a4785a7d3a2005330db52/5e1c75d2a7d3a27c283f60aa_Path%20147.png"
+                    height="2" alt="" />
+                <div class="section-description small">{{ post.about_text }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="section overflow-none">
+        <div class="columns-3 w-row">
+            <div class="home-mockup-column w-col w-col-5"><img
+                    src="https://uploads-ssl.webflow.com/5e1a4785a7d3a2005330db52/5e1c7664db4d528b92038617_photo01.jpg"
+                    data-ix="mockup-move" alt="" class="home-mockup" /></div>
+            <div class="info-column-right responsive w-col w-col-7">
+                <div class="long-feature-block">
+                    <h2 class="section-title section-title-full">NTT, Intel and Sony Establish New Global Forum Dedicated to Realizing the Communications of the Future</h2><img
+                        src="https://uploads-ssl.webflow.com/5e1a4785a7d3a2005330db52/5e1c77d8e402b6c7fd8d8b32_Line%203.svg"
+                        height="2" alt="" />
+                    <p class="section-description small long-feature-block">Delivering on the promise of a truly smart and connected world, where we enjoy an environment that improves the way humans live and interact with technology, requires a significant shift in computing, communications and network infrastructure. Nippon Telegraph and Telephone Corporation (NTT), Intel Corporation (Intel) and Sony Corporation (Sony) today announced that they will create a new industry forum, the Innovative Optical and Wireless Network (IOWN*) Global Forum.							<br /></p>
+                </div>
+				<div class="long-feature-block"></div>
+				<a href="#" class="button-2 w-button">View Press Release</a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
