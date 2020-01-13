@@ -1,24 +1,13 @@
 {% extends "base.twig" %}
 
 {% block content %}
+  <main role="main" class="inner cover" style="background:url({{ Image(post.hero_image).src }}); background-repeat: no-repeat;">
+<h1 class="heading-text my-0 text-blue text-left">{{ post.hero_heading }}</h1>
+    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+    </p>
 
-<main role="main">
-
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="first-slide" src="{{ Image(post.hero_image).src }}" width="100%" alt="First slide">
-            <div class="container">
-              <div class="carousel-caption text-center text-blue">
-				<p>{{ post.hero_pretext }}</p>
-                <h1 class="heading-text my-0 text-blue">{{ post.hero_heading }}</h1>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
 
 
       <!-- Marketing messaging and featurettes
@@ -27,7 +16,7 @@
       <div class="container marketing my-5">
 
         <!-- Three columns of text below the carousel -->
-        <div class="row">
+        <div class="row" style="position:relative;margin-top: 19rem;">
           <div class="col-lg-4 col-12">
 		  <div class="card" style="background-color: {{ post.box_background }};">
 		  <div class="card-body text-center d-flex flex-column justify-content-between">
