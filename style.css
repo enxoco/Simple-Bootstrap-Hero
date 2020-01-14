@@ -14,3 +14,32 @@ body {
 .w-webflow-badge {
 	display: none !important;
 }
+
+@media (min-width: 1200px) {
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1400px;
+}
+}
+
+.section-2 {
+    position: relative;
+    top: -250px;
+    background: none;
+}
+
+.nav-item.active {
+    background: yellow;
+}
+
+.bg-blue {
+    background: #004781;
+}
+
+.section-title-wrapper.full {
+    margin-left: 100px;
+}
+
+.home-mockup {
+    width: 500px;
+    left: -250px;
+}
