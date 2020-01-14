@@ -69,7 +69,7 @@ function my_acf_settings_show_admin( $show_admin ) {
 	$myUpdateChecker->setAuthentication('your-token-here');
 	
 	//Optional: Set the branch that contains the stable release.
-	$myUpdateChecker->setBranch('master');
+	$myUpdateChecker->setBranch('iown_theme');
 /**
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
