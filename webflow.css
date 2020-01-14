@@ -1,0 +1,67 @@
+.hero-overlay-block {
+    width: 100%;
+    height: 100%;
+    padding-top: 240px;
+    padding-bottom: 210px;
+    background-color: rgba(31, 111, 255, 0.59);
+    background-image: url(https://uploads-ssl.webflow.com/5e1a478…/5e1a56d…_iown-hero.jpg);
+    background-position: 0px 0px;
+    background-size: cover;
+}
+
+.hero-main-title {
+    max-width: 40vw;
+    margin-top: 0px;
+    margin-left: 100px;
+    font-family: Archivo, sans-serif;
+    color: #fff;
+    font-size: 46px;
+    line-height: 56px;
+    font-weight: 700;
+    text-align: left;
+}
+.hero-main-title.subtitle {
+    display: block;
+    width: 47%;
+    max-width: 39vw;
+    margin: 35px auto 0px 100px;
+    font-size: 27px;
+    line-height: 36px;
+    font-weight: 400;
+}
+.home-intro-link-block {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #4daeff;
+    background-image: url(https://uploads-ssl.webflow.com/5e1a478…/5e1b27e…_internet.png);
+    background-position: 50% 50%;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+}
+.w-inline-block {
+    max-width: 100%;
+    display: inline-block;
+}
+.intro-block-text-wrapper {
+    display: block;
+    width: 100%;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.intro-block-title {
+    font-family: Archivo, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+}

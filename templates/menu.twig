@@ -1,74 +1,50 @@
 {% if menu %}
-<!-- <div data-collapse="medium" data-animation="default" data-duration="400" data-no-scroll="1"
-        data-w-id="9d98a81f-fd7b-9565-cfa5-dcdf1b74456c" class="navbar w-nav"><a href="/"
-            class="logo-block w-nav-brand w--current"><img
-                src="{{ logo }}"
-                width="255" height="85" alt="" class="logo" /></a>
-        <nav role="navigation" class="nav-menu w-nav-menu">
-            {% for item in menu.items %}
-            {% if item.children %}
+<header>
+        <div class="container-fluid px-5 py-3">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#"><img src="{{ logo }}" width="255" height="85" alt="" class="logo" /></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+            
+                            {% for item in menu.items %}
+                            {% if item.children %}
 
-            <div data-delay="0" class="dropdown w-dropdown">
-                <div class="nav-link dropdown-toggle light w-dropdown-toggle">
-                    <div>{{ item.title|capitalize }}</div>
-                    <div class="dropdown-icon w-icon-dropdown-toggle"></div>
-                </div>
-                <nav class="dropdown-list w-dropdown-list">
-                    {% for child in item.children %}
-                      <a href="/about/about-1" class="dropdown-link w-dropdown-link">{{ child.title|upper }}</a>
-                    {% endfor %}
+                            <li class="nav-item dropdown">
+                                    {% if item.current %}
+                                    <a class="nav-link dropdown-toggle {{ item.classes|join(' ') }} text-orange" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    {{ item.title|capitalize }}
+                                </a>                                
+                                {% else %}
+                                <a class="nav-link dropdown-toggle {{ item.classes|join(' ') }}" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    {{ item.title|capitalize }}
+                                </a>
+                                {% endif %}
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    {% for child in item.children %}
+                                    <a class="dropdown-item {{ item.classes|join(' ') }}" href="{{ child.link }}">{{ child.title|upper }}</a>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                            {% else %}
+
+                        <li class="nav-item">
+                                {% if item.current %}
+                                <a class="nav-link text-orange" href="{{ item.link }}">{{ item.title|upper }}</a>
+                                {% else %}
+                                    <a class="nav-link" href="{{ item.link }}">{{ item.title|upper }}</a>
+                                    {% endif %}
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                        </ul>
+                    </div>
                 </nav>
             </div>
-            {% else %}
-            <a href="{{ item.link }}" class="nav-link dropdown-toggle light w-dropdown-toggle">{{ item.title|upper }}</a>
-            {% endif %}
-
-            {% endfor %}
-        </nav>
-        <div class="transparant-menu-button w-nav-button">
-            <div class="w-icon-nav-menu"></div>
-        </div>
-    </div> -->
-
-<div class="container-fluid px-5 py-3">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="{{ logo }}" width="255" height="85" alt="" class="logo" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-
-                {% for item in menu.items %}
-                {% if item.children %}
-                {% if item.current %}
-                    <li class="nav-item dropdown active">
-                {% else %}
-                <li class="nav-item dropdown">
-                {% endif %}
-                    <a class="nav-link dropdown-toggle {{ item.classes|join(' ') }}" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        {{ item.title|capitalize }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        {% for child in item.children %}
-                        <a class="dropdown-item {{ item.classes|join(' ') }}" href="{{ child.link }}">{{ child.title|upper }}</a>
-                        {% endfor %}
-                    </div>
-                </li>
-                {% else %}
-                {% if item.current %}
-                <li class="nav-item active">
-            {% else %}
-            <li class="nav-item">
-            {% endif %}
-                        <a class="nav-link" href="{{ item.link }}">{{ item.title|upper }}</a>
-                    </li>
-                    {% endif %}
-                    {% endfor %}
-            </ul>
-        </div>
-    </nav>
-</div>
+</header>
 {% endif %}
