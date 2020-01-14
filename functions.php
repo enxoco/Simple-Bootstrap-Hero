@@ -227,10 +227,15 @@ class StarterSite extends Timber\Site {
             $wp_customize->add_section( 'bwpy_color_options_section' , array(
                 'title'      => __( 'Color Options', 'bwpy' ),
                 'priority'   => 100,
-            ) );
+			) );
+			$wp_customize->add_control( 'bwpy_color_options_section', array(
+				'title'		=> __('New options here', 'bwpy'),
+				'type'		=>	'dropdown-pages',
+			) );
 
 			$wp_customize->add_setting( 'navbar_height', array(
-				'default' => ''
+				'default' => '',
+
 			) );
 
 			$wp_customize->add_control( 'navbar_height', array(
@@ -238,13 +243,24 @@ class StarterSite extends Timber\Site {
 				'section'	=> 'bwpy_content_options_section',
 				'helper'	=> __( 'In PX' ),
 				'priority'	=>	10,
-				'type'		=>	'control',
+				'type'		=>	'dropdown-pages',
 				'input_attrs'       => array(
 					'min'  => 0.5,
 					'step' => 0.01,
 					'max'  => 5,
 			),
 			) );
+
+			$wp_customize->add_control( new WP_Customize_Color_Control( 
+				$wp_customize, 
+				'bwpy_color_options_section', 
+				array(
+					'label'      => __( 'Header Color', 'bwpy' ),
+					'section'    => 'bwpy_content_options_section',
+					'settings'   => 'your_setting_id',
+						'priority'   => 1
+				)
+			));
 			
 			// add setting for page comment toggle checkbox
 			$wp_customize->add_setting( 'bwpy_page_comment_toggle', array( 

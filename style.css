@@ -523,6 +523,7 @@
    }
    
    .work-image {
+     background-size: cover;
      display: -webkit-box;
      display: -webkit-flex;
      display: -ms-flexbox;
@@ -558,25 +559,10 @@
      opacity: 0.7;
    }
    
-   .work-image.cc-work-1 {
-     background-image: url("https://assets.website-files.com/5c6e6f46bf98b2013cf621c5/5cdbececb102f913e509144f_portfolio%201%20-%20wide.svg");
+   .work-image {
      background-size: cover;
    }
    
-   .work-image.cc-work-2 {
-     background-image: url("https://assets.website-files.com/5c6e6f46bf98b2013cf621c5/5cdbececb102f96f5809144e_portfolio%202%20-%20wide.svg");
-     background-size: cover;
-   }
-   
-   .work-image.cc-work-4 {
-     background-image: url("https://assets.website-files.com/5c6e6f46bf98b2013cf621c5/5cdbececded4a0184e7de84b_portfolio%203%20-%20wide.svg");
-     background-size: cover;
-   }
-   
-   .work-image.cc-work-3 {
-     background-image: url("https://assets.website-files.com/5c6e6f46bf98b2013cf621c5/5cdbececded4a04d627de84c_portfolio%204%20-%20wide.svg");
-     background-size: cover;
-   }
    
    .project-name-link {
      margin-bottom: 5px;
