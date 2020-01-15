@@ -1,0 +1,88 @@
+{% extends "base.twig" %}
+
+{% block content %}
+ <main role="main" class="flex-shrink-0">
+
+
+    <div class="image-section">
+        <div class="image-section-overlay color">
+            <div class="section-title-wrapper full inner-page">
+                <h2 class="section-title inner-page">{{ post.heading }}</h2>
+                <img src="https://uploads-ssl.webflow.com/5e1a4785a7d3a2005330db52/5e1c77d8e402b6c7fd8d8b32_Line%203.svg" height="2" />
+
+            </div>
+        </div>
+    </div>
+      <div class="row my-5 mx-5 px-4">
+        <div class="col-lg-8 col-12 inner-page-wrap mx-auto">
+            <h2 class="section-title inner-page text-blue">{{ post.sub_heading }}</h2>
+          <hr class="mb-2">
+          <!-- Repeater -->
+          
+          <div class="row">
+                    <div class="media my-5">
+                            {% set group = post.meta('section_1') %}
+
+                            <img src="{{ group.image }}" class="mr-5" alt="..." style="height: 250px; width: 250px;">
+                            <div class="media-body">
+                              <h5 class="mt-4">{{ group.name }}</h5>
+                              <h5 class="mt-0">{{ group.title }}</h5>
+                              {{ group.description }}
+                            </div>
+                          </div>
+              <hr class="mb-3">
+                    <div class="media my-5">
+                            {% set group = post.meta('section_2') %}
+
+                            <img src="{{ group.image }}" class="mr-5" alt="..." style="height: 250px; width: 250px;">
+                            <div class="media-body">
+                                    <h5 class="mt-4">{{ group.name }}</h5>
+                                    <h5 class="mt-0">{{ group.title }}</h5>
+                                    {{ group.description }}
+                            </div>
+                          </div>
+                          <div class="media my-5">
+                                {% set group = post.meta('section_3') %}
+
+                                <img src="{{ group.image }}" class="mr-5" alt="..." style="height: 250px; width: 250px;">
+                                <div class="media-body">
+                                        <h5 class="mt-4">{{ group.name }}</h5>
+                                        <h5 class="mt-0">{{ group.title }}</h5>
+                                        {{ group.description }}
+                                </div>
+                              </div>
+          </div>
+
+
+                </div>
+        <div class="col-lg-2 col-12 sidebar pl-3 mx-auto">
+          <div class="sidebar-section">
+              <h2 class="sidebar-heading text-orange">
+                  Press Releases
+                </h2>
+                <hr class="mb-1">
+                <small><i>
+                    October 31st, 2019 JT, October 30th PT
+              </i></small><br>
+                <a class="sidebar-subheading text-orange" href="#">
+                    NTT, Intel and Sony Establish New Global Forum Dedicated to Realizing the Communications of the Future
+                </a>
+          </div>
+          <hr class="mb-5">
+          <div class="sidebar-section">
+              <h2 class="sidebar-heading text-red">
+                  Latest News
+                </h2>
+                <hr class="mb-1">
+                <small><i>
+                    October 31st, 2019 JT, October 30th PT
+              </i></small><br>
+                <a class="sidebar-subheading text-red" href="#">
+                    NTT, Intel and Sony Establish New Global Forum Dedicated to Realizing the Communications of the Future
+                </a>
+          </div>
+
+        </div>
+      </div>
+    </main>
+    {% endblock %}

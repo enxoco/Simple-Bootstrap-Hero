@@ -42,7 +42,6 @@ function load_color_settings(){
     $cp = new CustomColorPanel;
     
     $cp->add_color_setting('heading_color_picker', '#f4444d', 'Choose Heading Color', 'color');
-    $cp->add_color_setting('h2_color_picker', '#f4444d', 'Choose H2 Color', 'color');
     $cp->add_color_setting('menu_nav_link_color_picker', '#f4444d', 'TopNav Text Color', 'color');
     $cp->add_color_setting('menu_nav_background_color_picker', '#f4444d', 'TopNav Background Color', 'color');
     $cp->add_color_setting('body_text_color', '#f4444d', 'Default Body Text Color', 'color');

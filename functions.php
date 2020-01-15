@@ -32,24 +32,29 @@ if ( file_exists( $customizer_color_panel ) ){
  
 
  // Define path and URL to the ACF plugin.
-define( 'MY_ACF_PATH', get_stylesheet_directory() . '/includes/acf/' );
-define( 'MY_ACF_URL', get_stylesheet_directory_uri() . '/includes/acf/' );
+//define( 'MY_ACF_PATH', get_stylesheet_directory() . '/includes/acf/' );
+//define( 'MY_ACF_URL', get_stylesheet_directory_uri() . '/includes/acf/' );
 
 // Include the ACF plugin.
-include_once( MY_ACF_PATH . 'acf.php' );
-include_once( MY_ACF_PATH . 'load-custom-fields-class.php' );
+//include_once( MY_ACF_PATH . 'acf.php' );
+//include_once( MY_ACF_PATH . 'load-custom-fields-class.php' );
 // Customize the url setting to fix incorrect asset URLs.
-add_filter('acf/settings/url', 'my_acf_settings_url');
-function my_acf_settings_url( $url ) {
-    return MY_ACF_URL;
-}
+//add_filter('acf/settings/url', 'my_acf_settings_url');
+// function my_acf_settings_url( $url ) {
+//     return MY_ACF_URL;
+// }
 
 // (Optional) Hide the ACF admin menu item.
-add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
-function my_acf_settings_show_admin( $show_admin ) {
-    return true;
-}
+//add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
+// function my_acf_settings_show_admin( $show_admin ) {
+//     return true;
+// }
 
+// Load our dynamic css library
+require_once(__DIR__ . '/wp-content/plugins/wp-dynamic-css/bootstrap.php');
+
+
+// Modify our styles registration like so:
 
 	
 	/**
@@ -104,6 +109,9 @@ Timber::$dirname = array( 'templates', 'views' );
 Timber::$autoescape = false;
 
 
+
+
+
 /**
  * We're going to configure our theme inside of a subclass of Timber\Site
  * You can move this to its own file and include here via php's include("MySite.php")
@@ -116,6 +124,17 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+
+		// 2. Enqueue the stylesheet (using an absolute path, not a URL)
+		wp_dynamic_css_enqueue( 'my_new_style', get_stylesheet_directory() . '/custom.css', false, false, false );
+
+		// 3. Set the callback function (used to convert variables to actual values)
+		function my_dynamic_css_callback( $var_name )
+		{
+		return get_theme_mod( $var_name );
+		}
+
+		wp_dynamic_css_set_callback( 'my_new_style', 'my_dynamic_css_callback' );	
 		$args = array(
 			'post_type'=>'hero_page'
 		);
@@ -131,6 +150,8 @@ class StarterSite extends Timber\Site {
 	public function register_taxonomies() {
 
 	}
+
+	
 
 
 	/** This is where you add some context
@@ -226,7 +247,8 @@ class StarterSite extends Timber\Site {
 
             $wp_customize->add_section( 'bwpy_color_options_section' , array(
                 'title'      => __( 'Color Options', 'bwpy' ),
-                'priority'   => 100,
+				'priority'   => 100,
+				'panel'		=> 'static_front_page'
             ) );
 
 			$wp_customize->add_setting( 'navbar_height', array(
@@ -286,7 +308,30 @@ class StarterSite extends Timber\Site {
 	}
 
 	
+	function theme_get_customizer_css() {
+		ob_start();
+	
+		$text_color = get_theme_mod( 'heading_color_picker', '' );
+		if ( ! empty( $text_color ) ) {
+		  ?>
+		  body {
+			background: <?php echo $text_color; ?>;
+		  }
+		  <?php
+		}
+	
+	
+		$css = ob_get_clean();
+		return $css;
+	  }
+
+	// Modify our styles registration like so:
+	
+
+	
 
 }
+
+
 
 new StarterSite();

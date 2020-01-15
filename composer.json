@@ -16,7 +16,8 @@
     }
   ],
   "require": {
-	  "timber/timber": "1.*"
+	  "timber/timber": "1.*",
+    "askupa-software/wp-dynamic-css": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "5.7.16|6.*"

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Template Name: Front Page
+ * Template Name: Alternating Sections
  *
  * The template for displaying all pages.
  *
@@ -32,6 +32,8 @@ $site = new Timber\Site();
 $context['site'] = $site;
 
 
+// echo var_dump($timber_post);
+// wp_die();
 
 
-Timber::render( array( 'frontpage-home.twig' ), $context );
+Timber::render( array( 'alternating-sections.twig' ), $context );
