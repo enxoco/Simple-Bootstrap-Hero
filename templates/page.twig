@@ -17,34 +17,7 @@
           <hr class="mb-2">
           {{ post.content }}
         </div>
-        <div class="col-lg-2 col-12 sidebar pl-3 mx-auto">
-          <div class="sidebar-section">
-              <h2 class="sidebar-heading text-orange">
-                  Press Releases
-                </h2>
-                <hr class="mb-1">
-                <small><i>
-                    October 31st, 2019 JT, October 30th PT
-              </i></small><br>
-                <a class="sidebar-subheading text-orange" href="#">
-                    NTT, Intel and Sony Establish New Global Forum Dedicated to Realizing the Communications of the Future
-                </a>
-          </div>
-          <hr class="mb-5">
-          <div class="sidebar-section">
-              <h2 class="sidebar-heading text-red">
-                  Latest News
-                </h2>
-                <hr class="mb-1">
-                <small><i>
-                    October 31st, 2019 JT, October 30th PT
-              </i></small><br>
-                <a class="sidebar-subheading text-red" href="#">
-                    NTT, Intel and Sony Establish New Global Forum Dedicated to Realizing the Communications of the Future
-                </a>
-          </div>
-
-        </div>
+        {% include 'sidebar.twig' %}
       </div>
     </main>
     {% endblock %}

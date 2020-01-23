@@ -1,1 +1,40 @@
-Sidebar in Timber. Add HTML to your hearts content.
+<div class="col-lg-2 col-12 sidebar pl-3 mx-auto">
+    <div class="sidebar-section">
+        <h2 class="sidebar-heading text-orange">
+            Press Releases
+        </h2>
+
+        <hr class="mb-1">
+        {% for p in press %}
+        <small>
+            <i>
+                {{ p.date }}
+            </i>
+        </small>
+        <br>
+        <a class="sidebar-subheading text-orange" href="{{ p.slug }}">
+            {{ p.title }}
+        </a>
+        {% endfor %}
+
+    </div>
+    <hr class="mb-5">
+    <div class="sidebar-section">
+        <h2 class="sidebar-heading text-red">
+            Latest News
+        </h2>
+        <hr class="mb-1">
+        {% for p in press %}
+        <small>
+            <i>
+                {{ p.date }}
+            </i>
+        </small>
+        <br>
+        <a class="sidebar-subheading text-red" href="{{ p.slug }}">
+            {{ p.title }}
+        </a>
+        {% endfor %}
+    </div>
+
+</div>

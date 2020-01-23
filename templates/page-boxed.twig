@@ -7,14 +7,13 @@
     <div class="image-section">
         <div class="image-section-overlay color">
             <div class="section-title-wrapper full inner-page">
-                <h2 class="section-title inner-page">Press Releases - {{ post.type }}</h2>
+                <h2 class="section-title inner-page">{{ post.heading }}</h2>
             </div>
         </div>
     </div>
       <div class="row my-5 mx-5 px-4">
-        <div class="col-lg-10 col-12 inner-page-wrap">
-            <h2 class="section-title inner-page text-blue">{{ post.title }}</h2>
-            <i>{{ post.date }}</i>
+        <div class="col-lg-8 col-12 inner-page-wrap mx-auto">
+            <h2 class="section-title inner-page text-blue">{{ post.sub_heading }}</h2>
           <hr class="mb-2">
           {{ post.content }}
         </div>

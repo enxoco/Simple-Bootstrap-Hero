@@ -1,0 +1,11 @@
+<article id="post-{{ post.ID }}" class="post-{{ post.ID }} {{ post.post_type }} type-{{ post.post_type }} status-publish hentry">
+    {% if post.thumbnail %}
+        <img src="{{ post.thumbnail.src|resize(600, 300) }}" />
+    {% endif %}
+
+    <h2>{{ post.title }}</h2>
+
+    <div class="post-body">
+        {{ post.content }}
+    </div>
+</article>

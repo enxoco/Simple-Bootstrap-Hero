@@ -1,8 +1,6 @@
 <?php
 /**
- *
- * Template Name: Alternating Sections
- *
+ * Template Name: Boxed Page
  * The template for displaying all pages.
  *
  * This is the template that displays all pages by default.
@@ -26,14 +24,6 @@
 
 $context = Timber::context();
 
-$timber_post = new Timber\Post();
+$timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
-$site = new Timber\Site();
-$context['site'] = $site;
-
-
-$args = 'post_type=press_release&orderby=latest';
-$context['press'] = Timber::get_posts($args);
-
-
-Timber::render( array( 'alternating-sections.twig' ), $context );
+Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page-boxed.twig' ), $context );

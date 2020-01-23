@@ -23,6 +23,10 @@
 
 $context = Timber::context();
 
-$timber_post     = new Timber\Post();
+$timber_post     = new Timber\Post('post_type = press_release');
 $context['post'] = $timber_post;
+
+$args = 'post_type=press_release&orderby=latest';
+$context['press'] = Timber::get_posts($args);
+
 Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );
